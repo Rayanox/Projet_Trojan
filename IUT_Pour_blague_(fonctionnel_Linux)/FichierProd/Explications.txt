@@ -1,0 +1,3 @@
+Ces fichiers sont à mettre dans le dossier publique à l'institut. Il y a le script qui doit etre lancé depuis la machine victime, et le client que je peux lancer n'importe où pour me connecter à la victime.
+
+Ne fonctionne que sur Linux -> A adapter à windows si besoin, il n'y aura surement qu'à changer la commande pour lancer l'appel systeme.

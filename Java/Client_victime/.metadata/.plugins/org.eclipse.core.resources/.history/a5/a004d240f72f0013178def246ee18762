@@ -1,0 +1,98 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+
+public class InstanceServeur extends Thread implements IUtilisateurDEcouteur{
+
+	public static final int PORT = 2005;
+	public static final String IP = "127.0.0.1";
+	public static final int NBUSERSMAX = 5;
+	
+	private ServerSocket socketServeur;
+	private Socket socketTransition;
+	private EcouteurMessage EcouteurMessage;
+	private PrintWriter BufferDEnvoie;
+	
+	public InstanceServeur() {
+		try {
+			this.socketServeur = new ServerSocket(PORT, NBUSERSMAX, InetAddress.getByName(IP));
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void run() {
+		while(true) {
+			
+			try {
+				System.out.println("Connexion...");
+				this.socketTransition = this.socketServeur.accept();
+				this.EcouteurMessage = new EcouteurMessage(this);
+				this.EcouteurMessage.start();
+				this.BufferDEnvoie = new PrintWriter(this.socketTransition.getOutputStream());
+				System.out.println("Connexion Réussie");
+			} catch (UnknownHostException e) {
+				System.out.println("Connexion échouée");
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Connexion échouée");
+				e.printStackTrace();
+			}
+			
+			while(true) {
+				System.out.println("Appuyez sur une touche numérique ...");
+				Scanner sc = new Scanner(System.in);
+				String u = sc.nextLine();
+				this.EnvoieMessage(u);
+					
+			}
+			
+			/*try {
+				this.socketTransition.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Merci d'avoir appuyé sur une touche");
+			}*/
+		}
+			
+			
+			
+		
+		
+		
+	
+	
+	}
+
+	@Override
+	public void TraitementMessage(String message) {
+		// TODO Auto-generated method stub
+		System.out.println("Message reçu : "+message);
+	}
+
+	@Override
+	public Socket getSocket() {
+		// TODO Auto-generated method stub
+		return this.socketTransition;
+	}
+	
+	public void EnvoieMessage(String message) {
+		
+		this.BufferDEnvoie.println(message);
+		this.BufferDEnvoie.flush();
+}
+	
+}

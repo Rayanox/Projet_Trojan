@@ -1,0 +1,6 @@
+
+public interface IEcouteursDeMessages {
+
+	public void TraitementMessage(String message);
+	
+}

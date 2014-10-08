@@ -1,0 +1,6 @@
+
+public interface IUtilisateurDEcouteur {
+
+	public void TraitementMessage(String message);
+	public void getSocket();
+}

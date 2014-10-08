@@ -1,0 +1,66 @@
+ Le volume dans le lecteur C n'a pas de nom.
+ Le num‚ro de s‚rie du volume est 241C-6179
+
+ R‚pertoire de C:\Users\Mireille-Rayane\Desktop
+
+07/05/2013  23:50    <REP>          .
+07/05/2013  23:50    <REP>          ..
+21/04/2013  17:22         1ÿ543ÿ375 angry_ip_scanner_3_2_fr_35665_32.exe
+03/05/2013  23:55             1ÿ019 client.exe - Raccourci.lnk
+25/04/2013  21:00             1ÿ061 CodeBlocks.lnk
+07/04/2013  22:34           120ÿ320 CompteRendu_Rayane_BEN-HMIDANE.doc
+07/04/2013  22:34           490ÿ814 CompteRendu_Rayane_BEN-HMIDANE.pdf
+27/04/2013  18:15    <REP>          Convention
+28/03/2013  18:01           559ÿ864 ConventionStage_BENHMIDANE.png
+27/04/2013  18:33         2ÿ357ÿ179 Convention_Stage_Rayane_BENHMIDANE.pdf
+30/03/2013  13:27             1ÿ053 Dropbox.lnk
+21/04/2013  16:14    <REP>          eclipse
+07/04/2013  18:54            62ÿ600 Grille de Notation.pptx
+07/05/2013  23:30                65 identifiants.txt
+17/02/2013  21:08           923ÿ848 IMAG0321.jpg
+17/02/2013  21:09           912ÿ007 IMAG0322.jpg
+17/02/2013  21:11           881ÿ467 IMAG0325.jpg
+23/04/2013  20:43    <REP>          install win-64bits
+06/01/2013  16:17             1ÿ429 Internet Explorer.lnk
+09/04/2013  08:50            41ÿ161 Jeuxvideocom.pptx
+10/04/2013  09:42    <REP>          KinectArt
+07/03/2013  22:16             1ÿ504 liste.txt
+25/04/2013  20:39            20ÿ528 listePorts.txt
+07/04/2013  22:20           136ÿ152 Martial_LIPEB_Compte Rendu TP1&2 Reseau.pdf
+06/01/2013  22:40             2ÿ711 Microsoft Office Excel 2007.lnk
+06/01/2013  22:40             2ÿ795 Microsoft Office Outlook 2007.lnk
+06/01/2013  22:40             2ÿ753 Microsoft Office Word 2007.lnk
+07/03/2013  21:43            95ÿ141 montre-yema-greenwich-ymhf0836-p-146793.jpg
+09/01/2013  00:06           163ÿ833 Montre.png
+07/05/2013  23:31               999 Nouveau document texte.txt
+24/05/2012  13:43    <REP>          OpenNI_NITE_Installer-win32-0.27
+22/02/2013  22:40             1ÿ083 OpenVPN GUI.lnk
+23/04/2013  20:33    <REP>          pack
+21/03/2013  21:17               536 ParamŠtres du Routeur.txt
+20/04/2013  20:11    <REP>          PartageRayane
+27/04/2013  18:26               963 PDF Architect.lnk
+08/04/2013  00:29           734ÿ215 photo.jpg
+07/04/2013  19:00           259ÿ798 presentation Jeux Videos.odp
+07/04/2013  14:59           370ÿ648 presentation Jeux Videos2.docx
+07/04/2013  14:56           252ÿ623 presentation Jeux Videos2.odp
+24/02/2013  09:05    <REP>          processing-2.0b8
+12/04/2013  11:36           180ÿ073 Projet tutor‚.pptx
+08/05/2013  01:17    <REP>          projetTrojanWin
+08/05/2013  00:28    <REP>          projetTrojanWin_client
+06/01/2013  22:32    <REP>          RatioMaster-1.9.1
+22/02/2013  23:04             1ÿ649 rbenhmidane (infra-storage).lnk
+07/04/2013  21:30            59ÿ062 SchemaTP1.png
+07/04/2013  21:26            32ÿ036 SchemaTP2.png
+04/05/2013  13:40               927 serveur.exe - Raccourci.lnk
+20/02/2013  22:58               949 SopCast.lnk
+25/04/2013  20:42    <REP>          sqldeveloper_32bits
+09/04/2013  22:36            44ÿ166 src.rar
+04/05/2013  13:42    <REP>          test test
+08/05/2013  00:01               826 test.txt
+06/04/2013  22:12            76ÿ133 TP23_IHM.rar
+06/04/2013  20:51             4ÿ160 tubeAEssai.png
+06/04/2013  20:50            12ÿ067 tubeAEssai.xcf
+06/04/2013  20:53             3ÿ882 tubeAEssai2.png
+12/04/2013  11:07            55ÿ564 UML_Deplacement.png
+              44 fichier(s)       10ÿ415ÿ038 octets
+              15 R‚p(s)  37ÿ118ÿ586ÿ880 octets libres

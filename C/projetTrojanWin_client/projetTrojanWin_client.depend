@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1367975830 source:c:\users\mireille-rayane\desktop\projettrojanwin_client\main.c
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<unistd.h>
+	<string.h>
+

