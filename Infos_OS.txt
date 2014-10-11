@@ -1,0 +1,46 @@
+	Automatisation programme
+
+
+En fonction de l'OS, je dois utiliser une méthode ou commande différente pour automatiser le programme.
+
+
+
+ * Windows 7 *
+
+L'accès à AT est denié, dont nous allons utiliser "schtasks".
+	Commandes:
+		-> Creation de la task = { schtasks /Create /TN RayanoxTest /SC MINUTE /MO 1 /TR "C:\Users\rben-hmidane\Documents\TMP\script.bat" }
+		-> Affichage de la task = { schtasks /Query /TN RayanoxTest1 } -> Contient (commence par) "ERROR" si la tache n'existe pas.
+A savoir: il faut que le programme lancé soit un process qui reste constamment pour que schtasks ne le relance pas en multiple fois. En gros, un fichier batch executé 
+lancera d'autres process et se terminera, donc schtasks lancera plusieurs fois le batch qui lancera les process en parallele. Alors que si on execute un programe exe, le
+process continue et donc schtasks saura qu'il execute toujours le meme process et ne le lancera pas en multiple fois en meme temps.
+
+
+ * Windows 8 *
+
+	Idem que windows 7.
+
+ * Windows xp *
+
+ * Windows VISTA *
+
+ * Linux *
+
+	Commandes:
+		-> Creation de la task = { 
+					   Crontab -l > fich
+					   echo "*/5 * * * * C:\Users\rben-hmidane\Documents\TMP\script.bat" >> fich
+					   crontab fich
+					   rm fich
+					 }
+		-> Affichage de la task = { crontab -l | grep "nomduprogramme" } -> Il n'y aura aucune ligne si la tache n'existe pas encore.
+Important: Crontab lance le process autant de fois qu'il le faut meme si il est déjà démarré (il en démarre un nouveau).
+	   Il faut donc absolument tester si le process est en cours d'execution.
+
+		-> Affichage process cours d'exec= { ps -aux | grep "chemin_absolu_du_programme" } -> N'affiche qu'une seule ligne normalement (a tester) si le programme n'est pas en cours d'execution. Dans le cas contraire, on stop directement l'execution du programme.
+
+ ?? -> Vérifier si linux ne lance pas plusieurs fois le process s'il est deja demarré
+
+ ?? -> Chercher comment on peut vérifier sur quel os (et quelle version) on est en C et ce sera PARFAIT !
+
+
